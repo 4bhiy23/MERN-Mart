@@ -1,8 +1,10 @@
 import React from "react";
-import { formatIndianNumber } from "../lib/utils";
+import { clearCart, formatIndianNumber } from "../lib/utils";
 import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
 
 const BillSummary = ({ cartItems }) => {
+  const navigate = useNavigate();
   const itemsTotal = cartItems.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
     0
@@ -11,6 +13,33 @@ const BillSummary = ({ cartItems }) => {
   const deliveryFee = itemsTotal > 500 ? 0 : 50;
   const tax = Math.round(itemsTotal * 0.18);
   const grandTotal = itemsTotal + deliveryFee + tax;
+
+  const placeOrder = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cartItems,
+          totalAmount: grandTotal,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to place order");
+      }
+
+      return true;
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  };
 
   return (
     <div className="w-full max-w-sm border rounded-lg p-6 bg-white shadow-sm">
@@ -42,11 +71,24 @@ const BillSummary = ({ cartItems }) => {
 
         <div className="flex justify-between font-semibold text-base">
           <span>Total Payable</span>
-          <span>₹{formatIndianNumber(grandTotal)}</span>
+          <span>
+            ₹
+            {itemsTotal === 0
+              ? formatIndianNumber(0)
+              : formatIndianNumber(grandTotal)}
+          </span>
         </div>
       </div>
 
-      <Button className="w-full mt-4">
+      <Button
+        className="w-full mt-4"
+        disabled={itemsTotal === 0}
+        onClick={ async () => {
+          await placeOrder()
+          clearCart()
+          navigate("/orders")
+        }}
+      >
         Place Order →
       </Button>
     </div>

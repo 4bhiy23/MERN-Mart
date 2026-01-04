@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ProductCard from '@/components/ProductCard'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -33,11 +34,12 @@ const Home = () => {
       <div className='max-w-7xl mx-auto'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
           {products.slice().reverse().map((product) => (
-            <ProductCard key={product._id} product={product}  />
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       </div>
     </div>
+    <Footer />
     </>
   )
 }

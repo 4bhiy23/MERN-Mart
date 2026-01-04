@@ -91,6 +91,9 @@ const Navbar = () => {
           <DropdownMenuItem>
             <Link to="/orders">Your Orders</Link>
           </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link to="/contact">Contact Us</Link>
+          </DropdownMenuItem>
           <DropdownMenuItem className="text-red-600" onClick={logout}>
             Log out
           </DropdownMenuItem>

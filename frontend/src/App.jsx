@@ -16,6 +16,9 @@ import ProtectedRoute from './routes/ProtectedRoute'
 import NotFoundPage from './pages/NotFoundPage'
 import AdminRoute from './routes/AdminRoute'
 import Profile from './pages/Profile'
+import DetailedCard from './pages/DetailedCard'
+import Contact from './pages/Contact'
+import OrderDetails from './pages/OrderDetails'
 
 function App() {
   return (
@@ -30,6 +33,12 @@ function App() {
           <Home />
         </ProtectedRoute>
        } />
+      
+      <Route path='/details/:id' element={
+        <ProtectedRoute>
+          <DetailedCard />
+        </ProtectedRoute>
+      } />
       
 
       <Route path='/cart' element={ 
@@ -47,6 +56,18 @@ function App() {
       <Route path='/orders' element={ 
         <ProtectedRoute>
           <Orders />
+        </ProtectedRoute>
+       } />
+
+      <Route path='/orders/:id' element={ 
+        <ProtectedRoute>
+          <OrderDetails />
+        </ProtectedRoute>
+       } />
+
+      <Route path='/contact' element={ 
+        <ProtectedRoute>
+          <Contact />
         </ProtectedRoute>
        } />
 
