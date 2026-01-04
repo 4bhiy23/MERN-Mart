@@ -15,8 +15,10 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
-)
+);
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -24,7 +26,7 @@ app.use(cookieParser())
 
 app.use("/auth", authRouter)
 app.use("/product", isLoggedIn, productRouter)
-app.use("/order", isLoggedIn, orderRouter)
+app.use("/orders", isLoggedIn, orderRouter)
 app.use("/cart", isLoggedIn, cartRouter)
 app.use("/", indexRouter)
 
