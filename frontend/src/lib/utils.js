@@ -55,3 +55,16 @@ export const clearCart = async () => {
     console.log("Error clearing cart:", error)
   }
 }
+
+export const deleteProduct = async (productid) => {
+  try{
+    await fetch(`http://localhost:3000/admin/product/delete/${productid}`,{
+      method: "DELETE",
+      credentials: "include"
+    })
+    window.location.reload()
+    return console.log("Product Delted")
+  } catch (error){
+    console.log("Error deleting product", error)
+  }
+}

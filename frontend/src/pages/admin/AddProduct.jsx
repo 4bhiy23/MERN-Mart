@@ -25,7 +25,7 @@ export default function AddProduct() {
     } catch (err) {
       console.error(err);
     }
-  }
+  } 
 
   return (
     <div className="h-screen w-[80vw] flex justify-center items-center">

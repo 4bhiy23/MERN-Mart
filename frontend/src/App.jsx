@@ -19,6 +19,8 @@ import Profile from './pages/Profile'
 import DetailedCard from './pages/DetailedCard'
 import Contact from './pages/Contact'
 import OrderDetails from './pages/OrderDetails'
+import EditProductDetails from './pages/admin/EditProductDetails'
+import AdminOrders from './pages/admin/AdminOrders'
 
 function App() {
   return (
@@ -82,9 +84,11 @@ function App() {
         </AdminRoute>          
         }>
         <Route index element={<AllProducts />} /> 
+        <Route path="edit" element={ <EditProductDetails /> } />
+        <Route path="edit/:id" element={ <EditProductDetails /> } />
         <Route path="in-stock" element={<InStock />} />
         <Route path="out-of-stock" element={<OutOfStock />} />
-        <Route path="orders" element={<Orders />} />
+        <Route path="orders" element={<AdminOrders />} />
         <Route path="add-product" element={<AddProduct />} />
         <Route path="settings" element={<Settings />} />
       </Route>

@@ -9,6 +9,7 @@ const productRouter = require("./routes/productRoute")
 const orderRouter = require("./routes/orderRoute")
 const authRouter = require("./routes/authRoute")
 const cartRouter = require("./routes/cartRoute")
+const adminRouter = require("./routes/adminRoute")
 const isLoggedIn = require("./middlewares/isLoggedIn")
 
 app.use(
@@ -28,6 +29,7 @@ app.use("/auth", authRouter)
 app.use("/product", isLoggedIn, productRouter)
 app.use("/orders", isLoggedIn, orderRouter)
 app.use("/cart", isLoggedIn, cartRouter)
+app.use("/admin", adminRouter)
 app.use("/", indexRouter)
 
 app.listen(3000)

@@ -1,7 +1,6 @@
 - User
     - Profile picture (multer)
-    - Update Email, Password. Username (on avaliability)
-    - Add a field for orders ids to userModel
+    - Update Email, Password, Username (on avaliability)
 
 - Cart
     - Change quantity
@@ -13,7 +12,4 @@
     - Filters for products (Sidebar implementation)
 
 - Admin
-    - Features to control listed products
-        - Altering Stocks
-        - Editing Stock info
     - Multer to store product images

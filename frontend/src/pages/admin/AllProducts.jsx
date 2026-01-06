@@ -5,20 +5,20 @@ import React from 'react'
 const AllProducts =  () => {
     const [products, setProducts] = useState([])
     
-    const fetchProducts = async () => {
-        try {
-            const res = await fetch("http://localhost:3000/product",{
-                method: "GET",
-                credentials: "include"
-            })
-            const data = await res.json()
-            setProducts(data)
-        } catch (error) {
-            console.log("Error Fetching Products:", error)
-        }
-    }
     
     useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch("http://localhost:3000/product",{
+                    method: "GET",
+                    credentials: "include"
+                })
+                const data = await res.json()
+                setProducts(data)
+            } catch (error) {
+                console.log("Error Fetching Products:", error)
+            }
+        }
         fetchProducts()
     }, [])
     
