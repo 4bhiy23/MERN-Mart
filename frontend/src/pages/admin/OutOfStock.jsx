@@ -17,8 +17,8 @@ const OutOfStock = () => {
     }
   }
   const inStockProducts = products.filter(p => p.stock === 0);
-  
   useEffect(() => {
+  
     fetchProducts()
   }, [])
   
@@ -28,7 +28,7 @@ const OutOfStock = () => {
       <h1 className="text-4xl mb-6 font-semibold">Out Of Stock</h1>
       <div className="grid grid-cols-4 gap-5">
             {inStockProducts.slice().reverse().map(e => (
-                // <p key={e._id}>{e.title}</p>
+               // <p key={e._id}>{e.title}</p>
                 <AdminProductCard key={e._id} product={e} />
             ))}
         </div>

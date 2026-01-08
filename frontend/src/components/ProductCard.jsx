@@ -16,13 +16,12 @@ const ProductCard = ({ product }) => {
   return (
     <div
       className="group relative bg-card rounded-2xl border border-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden w-72 flex flex-col cursor-pointer"
-      onClick={() => console.log("Card background clicked")}
+      // onClick={() => console.log("Card background clicked")}
     >
       {/* Badge Overlay */}
       <div className="absolute top-3 left-3 z-10">
         <Badge 
           variant={product.stock > 0 ? "secondary" : "destructive"}
-          className="backdrop-blur-md bg-white/80 dark:bg-black/50"
         >
           {product.stock > 0 ? "In Stock" : "Sold Out"}
         </Badge>
@@ -31,7 +30,7 @@ const ProductCard = ({ product }) => {
       {/* Product Image Container */}
       <div className="relative h-52 overflow-hidden">
         <img
-          src={product.image}
+          src={`http://localhost:3000/product/image/${product._id}`}
           alt={product.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />

@@ -33,7 +33,7 @@ export default function Login() {
       alert(result.message);
     }
       
-      console.log(result);
+      // console.log(result);
     } catch (err) {
       console.error(err);
     }

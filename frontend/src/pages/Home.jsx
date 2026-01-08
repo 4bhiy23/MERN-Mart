@@ -23,9 +23,9 @@ const Home = () => {
     fetchProducts()
   }, [])
 
-  useEffect(() => {
-    console.log(products)
-  }, [products])
+  // useEffect(() => {
+  //   console.log(products)
+  // }, [products])
   
   return (
     <>

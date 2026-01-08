@@ -25,7 +25,7 @@ const InStock = () => {
   
   return (
     <div>
-      <h1 className="text-4xl mb-6 font-semibold">Out Of Stock</h1>
+      <h1 className="text-4xl mb-6 font-semibold">In Stock</h1>
       <div className="grid grid-cols-4 gap-5">
             {inStockProducts.slice().reverse().map(e => (
                 // <p key={e._id}>{e.title}</p>

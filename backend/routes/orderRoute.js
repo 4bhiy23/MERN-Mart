@@ -6,8 +6,7 @@ const { orderConfirmation } = require('../controllers/mailController');
 router.post("/", async (req, res) => {
   try {
     const { cartItems, totalAmount } = req.body;
-    const user =  req.user.id;
-
+    const userId = req.user.id;
 
     const items = cartItems.map(e => ({
       product: e.product._id,
@@ -16,13 +15,16 @@ router.post("/", async (req, res) => {
     }));
 
     const order = await orderModel.create({
-      user,
+      user: userId,
       items,
       totalAmount,
     });
 
-    await orderConfirmation(order, req.user)
-    
+    // 🔑 FIX: populate product before email
+    const populatedOrder = await order.populate("items.product");
+
+    await orderConfirmation(populatedOrder, req.user);
+
     return res.json({
       message: "Order placed successfully",
       orderId: order._id,
@@ -30,7 +32,7 @@ router.post("/", async (req, res) => {
 
   } catch (error) {
     console.error("ORDER CREATE ERROR:", error);
-    return res.json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
 });
 

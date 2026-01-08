@@ -17,7 +17,7 @@ const OrderDetails = () => {
 
   // Order passed from Orders page
   const order = location.state?.order;
-    console.log(order)
+    // console.log(order)
   if (!order) {
     return (
       <>
