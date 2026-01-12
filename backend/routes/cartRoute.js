@@ -3,7 +3,6 @@ const router = express.Router()
 const productModel = require('../models/productModel')
 const userModel = require('../models/userModel')
 const mongoose = require('mongoose')
-const isLoggedIn = require('../middlewares/isLoggedIn')
 
 // Remove item from cart option
 // Change quantity of items
