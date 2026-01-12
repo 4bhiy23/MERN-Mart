@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 mongoose
-.connect("mongodb://127.0.0.1:27017/ecommerce")
+.connect("mongodb+srv://Admin:admin1234@cluster0.8vtujig.mongodb.net/")
 .then(function(){
     console.log("Mongoose connected successfully")
 })
