@@ -22,7 +22,7 @@ export function formatIndianNumber(num) {
 }
 
 export const addTOCart = async (productid) => {
-  await fetch(`http://localhost:3000/cart/addtocart/${productid}`, {
+  await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart/addtocart/${productid}`, {
     method: "GET",
     credentials: "include"
   })
@@ -31,7 +31,7 @@ export const addTOCart = async (productid) => {
 
 export const deleteFromCart = async (productid) => {
     try {
-      const res = await fetch(`http://localhost:3000/cart/deletefromcart/${productid}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart/deletefromcart/${productid}`, {
       method: "DELETE",
       credentials: "include"
       })
@@ -47,7 +47,7 @@ export const deleteFromCart = async (productid) => {
 
 export const clearCart = async () => {
   try{
-    await fetch("http://localhost:3000/cart/clear",{
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart/clear`,{
       method: "PATCH",
       credentials: "include"
     })
@@ -58,7 +58,7 @@ export const clearCart = async () => {
 
 export const deleteProduct = async (productid) => {
   try{
-    await fetch(`http://localhost:3000/admin/product/delete/${productid}`,{
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/product/delete/${productid}`,{
       method: "DELETE",
       credentials: "include"
     })
