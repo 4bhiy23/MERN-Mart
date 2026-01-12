@@ -25,7 +25,7 @@ const Cart = () => {
 
   useEffect(() => {
     const getCartItems = async () => {
-      const res = await fetch("http://localhost:3000/cart", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cart`, {
         method: "GET",
         credentials: "include",
       });

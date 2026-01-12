@@ -46,7 +46,7 @@ const DetailedCard = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-slate-100 border border-slate-200">
               <img
-                src={`http://localhost:3000/product/image/${product._id}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/product/image/${product._id}`}
                 alt={product.title}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />

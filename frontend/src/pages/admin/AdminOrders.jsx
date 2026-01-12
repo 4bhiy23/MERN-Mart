@@ -7,7 +7,7 @@ const AdminOrders = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const res = await fetch("http://localhost:3000/admin/orders", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/orders`, {
         method: "GET",
         credentials: "include",
       });

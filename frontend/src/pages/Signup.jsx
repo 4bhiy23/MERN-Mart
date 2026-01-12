@@ -11,7 +11,7 @@ export default function Signup() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("http://localhost:3000/auth/signup", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,8 +36,8 @@ export default function Signup() {
   }
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-amber-100 to-amber-200 flex justify-center items-center">
-        <div className="bg-white shadow-xl rounded-2xl px-12 py-10 w-[420px]">
+    <div className="w-full h-screen bg-linear-to-br from-amber-100 to-amber-200 flex justify-center items-center">
+        <div className="bg-white shadow-xl rounded-2xl px-12 py-10 w-105">
             <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
               Sign Up
             </h1>

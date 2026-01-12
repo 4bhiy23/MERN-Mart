@@ -21,7 +21,7 @@ export default function AddProduct() {
       formData.append("category", data.category);
       formData.append("stock", data.stock);
 
-      const res = await fetch("http://localhost:3000/product", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/product`, {
         method: "POST",
         credentials: "include",
         body: formData, // IMPORTANT

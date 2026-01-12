@@ -63,7 +63,7 @@ export const deleteProduct = async (productid) => {
       credentials: "include"
     })
     window.location.reload()
-    return console.log("Product Delted")
+    return console.log("Product Deleted")
   } catch (error){
     console.log("Error deleting product", error)
   }

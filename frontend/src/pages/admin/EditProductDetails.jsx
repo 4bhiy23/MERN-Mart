@@ -37,7 +37,7 @@ const EditProductDetails = () => {
     formData.append("price", data.price);
     formData.append("stock", data.stock);
     const res = await fetch(
-      `http://localhost:3000/admin/product/edit/${product._id}`,
+      `${import.meta.env.VITE_BACKEND_URL}/admin/product/edit/${product._id}`,
       {
         method: "POST",
         body: formData,

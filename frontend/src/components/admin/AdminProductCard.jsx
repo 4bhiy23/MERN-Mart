@@ -17,7 +17,7 @@ const AdminProductCard = ({ product }) => {
     >
       {/* Product Image */}
       <img
-        src={`http://localhost:3000/product/image/${product._id}`}
+        src={`${import.meta.env.VITE_BACKEND_URL}/product/image/${product._id}`}
         alt={product.title}
         className="w-full h-48 object-cover"
       />

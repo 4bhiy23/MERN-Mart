@@ -12,4 +12,3 @@
     - Filters for products (Sidebar implementation)
 
 - Admin
-    - Multer to store product images

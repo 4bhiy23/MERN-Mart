@@ -20,23 +20,23 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/auth/check", {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/check`, {
           credentials: "include",
         });
         if (!res.ok) throw new Error("Unauthorized");
         const data = await res.json();
         setUser(data.user); // { id, role, ... }
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         setUser(null);
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchUser();
   }, []);
 
   const logout = async () => {
-    await fetch("http://localhost:3000/auth/logout", {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/logout`, {
       method: "GET",
       credentials: "include",
     });

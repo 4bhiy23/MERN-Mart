@@ -7,7 +7,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await fetch("http://localhost:3000/profile",{
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/profile`,{
                 method: "GET",
                 credentials: "include"
             })

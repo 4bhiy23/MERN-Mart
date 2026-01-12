@@ -3,8 +3,23 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Twitter, Facebook, Link as LinkIcon } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const Footer = () => {
+  const navigate = useNavigate()
+
+  const {
+    register,
+    handleSubmit
+  } = useForm()
+
+  const onSubmit = (data) => {
+    // console.log(data)
+    navigate("/contact",{state : { data }})
+  }
+  
+  
   return (
     <footer className="relative w-full bg-gray-100 pt-20">
       {/* Wavy Background Decoration */}
@@ -37,24 +52,30 @@ const Footer = () => {
           <div className="md:col-span-8 space-y-6">
             <h2 className="text-4xl font-bold mb-8">Contact Us</h2>
             
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-4">
                 <Input 
+                  {...register("name")}
                   placeholder="Your Name *" 
                   className="bg-[#2a3f55] border-none text-white placeholder:text-gray-400 h-12"
-                />
+                  />
                 <Input 
+                  {...register("email")}
                   placeholder="Your Mail *" 
                   type="email"
                   className="bg-[#2a3f55] border-none text-white placeholder:text-gray-400 h-12"
                 />
-                <Button className="bg-white text-[#1a2e44] hover:bg-gray-200 px-8 py-6 rounded-md font-semibold transition-colors">
+                <Button className="bg-white text-[#1a2e44] hover:bg-gray-200 px-8 py-6 rounded-md font-semibold transition-colors"
+                // onClick={() => navigate("/contact")}
+                type="submit"
+                >
                   Send Message
                 </Button>
               </div>
               
               <div>
                 <Textarea 
+                  {...register("message")}
                   placeholder="Your Message *" 
                   className="bg-[#2a3f55] border-none text-white placeholder:text-gray-400 min-h-[112px] resize-none"
                 />

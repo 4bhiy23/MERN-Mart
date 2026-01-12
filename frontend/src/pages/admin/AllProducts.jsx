@@ -9,7 +9,7 @@ const AllProducts =  () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch("http://localhost:3000/product",{
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/product`,{
                     method: "GET",
                     credentials: "include"
                 })

@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useLocation } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -12,6 +13,8 @@ import {
 } from "@/components/ui/card";
 
 export default function ContactForm() {
+  const location = useLocation()
+  const data = location.state?.data
   const [result, setResult] = useState("");
 
   const onSubmit = async (event) => {
@@ -57,6 +60,7 @@ export default function ContactForm() {
                   type="text"
                   name="name"
                   placeholder="Your full name"
+                  defaultValue={data?.name || ""}
                   required
                 />
               </div>
@@ -67,6 +71,7 @@ export default function ContactForm() {
                   type="email"
                   name="email"
                   placeholder="you@example.com"
+                  defaultValue={data?.email || ""}
                   required
                 />
               </div>
@@ -76,6 +81,7 @@ export default function ContactForm() {
                 <Textarea
                   name="message"
                   placeholder="Write your message here..."
+                  defaultValue={data?.message || ""}
                   rows={5}
                   required
                 />

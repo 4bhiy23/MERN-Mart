@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
       {/* Product Image Container */}
       <div className="relative h-52 overflow-hidden">
         <img
-          src={`http://localhost:3000/product/image/${product._id}`}
+          src={`${import.meta.env.VITE_BACKEND_URL}/product/image/${product._id}`}
           alt={product.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />

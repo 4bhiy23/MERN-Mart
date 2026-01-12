@@ -7,7 +7,7 @@ const AdminRoute = ({ children }) => {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const res = await fetch("http://localhost:3000/auth/check", {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/check`, {
           credentials: "include",
         });
         if (!res.ok) throw new Error("Unauthorized");

@@ -16,7 +16,7 @@ const BillSummary = ({ cartItems }) => {
 
   const placeOrder = async () => {
     try {
-      const res = await fetch("http://localhost:3000/orders", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/orders`, {
         method: "POST",
         credentials: "include",
         headers: {

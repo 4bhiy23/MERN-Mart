@@ -9,7 +9,7 @@ const Orders = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const res = await fetch("http://localhost:3000/orders", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/orders`, {
         method: "GET",
         credentials: "include",
       });
